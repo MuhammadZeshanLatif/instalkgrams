@@ -1,0 +1,655 @@
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* ===== EXTRA LARGE DEVICES (1400px and up) ===== */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* ===== LARGE DEVICES (1200px and up) ===== */
+@media (min-width: 1200px) {
+    .hero-section {
+        min-height: 90vh;
+    }
+    
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+/* ===== MEDIUM DEVICES (992px and up) ===== */
+@media (min-width: 992px) {
+    .navbar-nav .nav-link {
+        margin: 0 0.25rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .feature-card,
+    .step-card {
+        min-height: 350px;
+    }
+    
+    .sidebar {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+/* ===== SMALL TO MEDIUM DEVICES (768px to 991px) ===== */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    
+    .search-container {
+        margin: 0 auto;
+    }
+    
+    .navbar-collapse {
+        background-color: var(--surface-color);
+        border-radius: var(--border-radius-md);
+        margin-top: 1rem;
+        padding: 1rem;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0.25rem 0;
+        border-radius: var(--border-radius-md);
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .feature-card,
+    .step-card,
+    .value-card {
+        margin-bottom: 2rem;
+        min-height: auto;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profile-stats {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .team-card {
+        margin-bottom: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .cta-section .row {
+        text-align: center;
+    }
+    
+    .cta-section .col-lg-4 {
+        margin-top: 1.5rem;
+    }
+    
+    .sidebar {
+        position: static;
+        margin-top: 3rem;
+    }
+}
+
+/* ===== SMALL DEVICES (576px to 767px) ===== */
+@media (max-width: 767.98px) {
+    .hero-section {
+        min-height: 70vh;
+        padding: 3rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .search-container .input-group {
+        flex-direction: column;
+    }
+    
+    .search-container .input-group .form-control {
+        border-radius: var(--border-radius-md) !important;
+        margin-bottom: 0.75rem;
+    }
+    
+    .search-container .btn {
+        border-radius: var(--border-radius-md) !important;
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .feature-icon,
+    .value-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .feature-card,
+    .step-card,
+    .value-card {
+        padding: 1.5rem;
+    }
+    
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+    
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-stats {
+        gap: 1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.25rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .blog-content {
+        padding: 1rem;
+    }
+    
+    .blog-image {
+        height: 150px;
+    }
+    
+    .contact-form-wrapper,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .team-photo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .trending-card {
+        height: 200px;
+    }
+    
+    .trending-overlay {
+        padding: 1rem;
+    }
+    
+    .floating-download-btn {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .floating-download-btn .btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .modal-dialog {
+        margin: 1rem;
+    }
+    
+    .accordion-button {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem;
+    }
+}
+
+/* ===== EXTRA SMALL DEVICES (less than 576px) ===== */
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-section {
+        min-height: 60vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .feature-card,
+    .step-card,
+    .value-card,
+    .blog-card {
+        padding: 1rem;
+    }
+    
+    .feature-icon,
+    .value-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .profile-header {
+        gap: 0.75rem;
+    }
+    
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .profile-stats {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .stat {
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    .blog-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .blog-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-form-wrapper,
+    .contact-info,
+    .sidebar-widget {
+        padding: 1rem;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .team-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .team-social {
+        gap: 0.5rem;
+    }
+    
+    .team-social a {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .trending-card {
+        height: 180px;
+    }
+    
+    .trending-overlay {
+        padding: 0.75rem;
+    }
+    
+    .trending-overlay h5 {
+        font-size: 1rem;
+    }
+    
+    .trending-overlay p {
+        font-size: 0.8rem;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+    
+    .footer .row > div {
+        margin-bottom: 2rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .page-header {
+        padding: 2rem 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .page-header .lead {
+        font-size: 1rem;
+    }
+    
+    .cta-section {
+        padding: 2rem 0;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-section .lead {
+        font-size: 1rem;
+    }
+    
+    .ad-placeholder {
+        min-height: 80px;
+        font-size: 0.8rem;
+    }
+    
+    .ad-placeholder.vertical {
+        min-height: 200px;
+    }
+    
+    .ad-placeholder.native {
+        min-height: 100px;
+    }
+    
+    .modal-content {
+        margin: 0.5rem;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1rem;
+    }
+}
+
+/* ===== LANDSCAPE ORIENTATION ON MOBILE ===== */
+@media (max-width: 767.98px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .header,
+    .footer,
+    .ad-placeholder,
+    .floating-download-btn,
+    .cta-section,
+    .social-links,
+    .btn {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .feature-card,
+    .step-card,
+    .value-card,
+    .blog-card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        break-inside: avoid;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+    
+    .page-header {
+        background: none !important;
+        color: black !important;
+        border-bottom: 2px solid #ddd;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .feature-card:hover,
+    .step-card:hover,
+    .value-card:hover,
+    .blog-card:hover,
+    .team-card:hover,
+    .trending-card:hover {
+        transform: none !important;
+    }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .feature-card,
+    .step-card,
+    .value-card,
+    .blog-card {
+        border: 2px solid black !important;
+    }
+    
+    .btn {
+        border: 2px solid !important;
+    }
+    
+    .form-control {
+        border: 2px solid black !important;
+    }
+}
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .form-control {
+        min-height: 44px;
+    }
+    
+    .media-item {
+        min-height: 44px;
+    }
+    
+    .accordion-button {
+        min-height: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .feature-card:hover,
+    .step-card:hover,
+    .value-card:hover,
+    .blog-card:hover,
+    .team-card:hover,
+    .trending-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* ===== FOCUS STYLES FOR ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: no-preference) {
+    *:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+    
+    .btn:focus {
+        box-shadow: 0 0 0 0.2rem rgba(225, 48, 108, 0.5);
+    }
+    
+    .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(225, 48, 108, 0.25);
+    }
+}
+
+/* ===== DARK MODE RESPONSIVE ADJUSTMENTS ===== */
+@media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+        --bg-color: #121212;
+        --surface-color: #1E1E1E;
+        --text-primary: #FFFFFF;
+        --text-secondary: #B3B3B3;
+        --border-color: #333333;
+        --shadow-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ===== CONTAINER QUERIES (Future-proofing) ===== */
+@container (max-width: 400px) {
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container (min-width: 600px) {
+    .stories-grid,
+    .reels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
