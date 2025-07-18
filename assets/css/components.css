@@ -726,3 +726,9 @@
     max-width: 100%;
     height: 450px;
 }
+button.btn.btn-primary.back-to-top-btn {
+    .fas.fa-arrow-up{
+        transform:translate(-6px, 1px);
+        font-size:20px;
+    }
+}
