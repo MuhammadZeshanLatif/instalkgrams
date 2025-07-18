@@ -1,7 +1,7 @@
 // ===== MAIN JAVASCRIPT FILE =====
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeApp();
 });
 
@@ -13,7 +13,7 @@ function initializeApp() {
     initializeEventListeners();
     initializeTooltips();
     initializeLazyLoading();
-    
+
     console.log('InStalkgram app initialized successfully');
 }
 
@@ -21,11 +21,11 @@ function initializeApp() {
 function initializeTheme() {
     const themeToggle = document.getElementById('themeToggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
-    
+
     // Set initial theme
     document.documentElement.setAttribute('data-theme', currentTheme);
     updateThemeIcon(currentTheme);
-    
+
     // Theme toggle event listener
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
@@ -35,11 +35,11 @@ function initializeTheme() {
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
-    
+
     // Animate theme transition
     document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
     setTimeout(() => {
@@ -68,13 +68,13 @@ function initializeAnimations() {
             offset: 100
         });
     }
-    
+
     // Add scroll animations for elements without AOS
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -83,7 +83,7 @@ function initializeAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
     document.querySelectorAll('.feature-card, .step-card, .value-card').forEach(el => {
         observer.observe(el);
@@ -125,19 +125,19 @@ function initializeEventListeners() {
     // Search form submission
     const searchBtn = document.getElementById('searchBtn');
     const usernameInput = document.getElementById('usernameInput');
-    
+
     if (searchBtn && usernameInput) {
         searchBtn.addEventListener('click', handleSearch);
-        usernameInput.addEventListener('keypress', function(e) {
+        usernameInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 handleSearch();
             }
         });
     }
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -148,18 +148,18 @@ function initializeEventListeners() {
             }
         });
     });
-    
+
     // Newsletter subscription
     const newsletterForms = document.querySelectorAll('form');
     newsletterForms.forEach(form => {
         const emailInput = form.querySelector('input[type="email"]');
         const submitBtn = form.querySelector('button[type="button"]');
-        
+
         if (emailInput && submitBtn && submitBtn.textContent.includes('Subscribe')) {
             submitBtn.addEventListener('click', handleNewsletterSubscription);
         }
     });
-    
+
     // Back to top functionality
     const backToTopBtn = createBackToTopButton();
     window.addEventListener('scroll', () => {
@@ -169,10 +169,10 @@ function initializeEventListeners() {
             backToTopBtn.style.display = 'none';
         }
     });
-    
+
     // Navbar scroll effect
     window.addEventListener('scroll', handleNavbarScroll);
-    
+
     // Handle window resize
     window.addEventListener('resize', debounce(handleWindowResize, 250));
 }
@@ -232,16 +232,16 @@ function scrollToResults() {
 // ===== RECENT SEARCHES =====
 function addToRecentSearches(username) {
     let recentSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
-    
+
     // Remove if already exists
     recentSearches = recentSearches.filter(search => search !== username);
-    
+
     // Add to beginning
     recentSearches.unshift(username);
-    
+
     // Keep only last 5 searches
     recentSearches = recentSearches.slice(0, 5);
-    
+
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
     updateRecentSearchesDisplay();
 }
@@ -249,14 +249,14 @@ function addToRecentSearches(username) {
 function updateRecentSearchesDisplay() {
     const recentSearchesContainer = document.getElementById('recentSearches');
     if (!recentSearchesContainer) return;
-    
+
     const recentSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
-    
+
     if (recentSearches.length === 0) {
         recentSearchesContainer.innerHTML = '<p class="text-muted">No recent searches</p>';
         return;
     }
-    
+
     const searchesHTML = recentSearches.map(username => `
         <div class="recent-search-item">
             <a href="#" onclick="searchUsername('${username}')" class="text-decoration-none">
@@ -264,7 +264,7 @@ function updateRecentSearchesDisplay() {
             </a>
         </div>
     `).join('');
-    
+
     recentSearchesContainer.innerHTML = searchesHTML;
 }
 
@@ -305,7 +305,7 @@ function showNotification(message, type = 'info') {
             <button type="button" class="btn-close ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
         </div>
     `;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
@@ -315,9 +315,9 @@ function showNotification(message, type = 'info') {
         min-width: 300px;
         animation: slideInRight 0.3s ease-out;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
@@ -342,21 +342,21 @@ function handleNewsletterSubscription(event) {
     const form = event.target.closest('form') || event.target.closest('.input-group').parentElement;
     const emailInput = form.querySelector('input[type="email"]');
     const email = emailInput.value.trim();
-    
+
     if (!email) {
         showNotification('Please enter your email address', 'warning');
         return;
     }
-    
+
     if (!isValidEmail(email)) {
         showNotification('Please enter a valid email address', 'error');
         return;
     }
-    
+
     // Simulate subscription
     event.target.disabled = true;
     event.target.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-    
+
     setTimeout(() => {
         showNotification('Successfully subscribed to newsletter!', 'success');
         emailInput.value = '';
@@ -398,14 +398,14 @@ function createBackToTopButton() {
         z-index: 1000;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     `;
-    
+
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-    
+
     document.body.appendChild(backToTopBtn);
     return backToTopBtn;
 }
@@ -415,7 +415,7 @@ function initializeTooltips() {
     // Initialize Bootstrap tooltips if available
     if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
         const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function(tooltipTriggerEl) {
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl);
         });
     }
@@ -434,7 +434,7 @@ function initializeLazyLoading() {
                 }
             });
         });
-        
+
         document.querySelectorAll('img[data-src]').forEach(img => {
             imageObserver.observe(img);
         });
@@ -447,7 +447,7 @@ function handleWindowResize() {
     if (window.trendingSwiper) {
         window.trendingSwiper.update();
     }
-    
+
     // Update AOS if it exists
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
@@ -469,7 +469,7 @@ function debounce(func, wait) {
 
 function throttle(func, limit) {
     let inThrottle;
-    return function() {
+    return function () {
         const args = arguments;
         const context = this;
         if (!inThrottle) {
@@ -481,7 +481,7 @@ function throttle(func, limit) {
 }
 
 // ===== KEYBOARD NAVIGATION =====
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     // ESC key to close modals
     if (e.key === 'Escape') {
         const openModal = document.querySelector('.modal.show');
@@ -492,7 +492,7 @@ document.addEventListener('keydown', function(e) {
             }
         }
     }
-    
+
     // Enter key on search input
     if (e.key === 'Enter' && e.target.id === 'usernameInput') {
         e.preventDefault();
@@ -517,12 +517,12 @@ function logPerformance() {
 logPerformance();
 
 // ===== ERROR HANDLING =====
-window.addEventListener('error', function(e) {
+window.addEventListener('error', function (e) {
     console.error('JavaScript Error:', e.error);
     // You could send this to an error tracking service
 });
 
-window.addEventListener('unhandledrejection', function(e) {
+window.addEventListener('unhandledrejection', function (e) {
     console.error('Unhandled Promise Rejection:', e.reason);
     // You could send this to an error tracking service
 });
@@ -582,7 +582,7 @@ function formatNumber(num) {
 function displayPosts(posts) {
     const storiesGrid = document.getElementById("storiesGrid");
     const reelsGrid = document.getElementById("reelsGrid");
-    
+
     storiesGrid.innerHTML = "";
     reelsGrid.innerHTML = "";
 
@@ -613,7 +613,7 @@ function displayPosts(posts) {
                 <i class="fas fa-download"></i>
             </div>
         `;
-        
+
         if (isVideo) {
             const playButton = postItem.querySelector(".video-play-overlay");
             playButton.addEventListener("click", (e) => {
@@ -621,13 +621,13 @@ function displayPosts(posts) {
                 openModal(post);
             });
         }
-        
+
         postItem.addEventListener("click", (e) => {
             if (!e.target.closest(".download-icon") && !e.target.closest(".video-play-overlay")) {
                 openModal(post);
             }
         });
-        
+
         postItem.querySelector(".download-icon").addEventListener("click", (e) => {
             e.stopPropagation();
             downloadMedia(post);
@@ -667,17 +667,17 @@ function downloadMedia(post) {
     try {
         const mediaUrl = post.mediaUrls[0]?.url;
         const isVideo = post.postType === "video";
-        
+
         const link = document.createElement("a");
         link.href = mediaUrl;
         link.download = `${post.username}_${post.shortcode || Date.now()}.${isVideo ? "mp4" : "jpg"}`;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
-        
+
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
+
         showNotification("Download started!", "success");
     } catch (error) {
         console.error("Download failed:", error);
@@ -685,4 +685,11 @@ function downloadMedia(post) {
     }
 }
 
+function stopVideo() {
+    const videoElement = document.querySelector('#mediaContainer video');
+    if (videoElement) {
+        videoElement.pause();  // Pause the video
+        videoElement.currentTime = 0;  // Reset to the start of the video
+    }
+}
 
