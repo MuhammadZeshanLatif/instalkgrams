@@ -653,3 +653,50 @@
     }
 }
 
+@media (min-width:480px) and (max-width: 768px) {
+    .input-group.input-group-lg {
+        span.input-group-text {
+            width: fit-content;
+            border-radius: 8px !important;
+            margin: auto;
+            margin-bottom: 6px;
+        }
+
+        input#usernameInput {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        button#searchBtn {
+            width: 100%; /* Makes the button full width on small screens */
+            border-radius: 8px;
+            margin: auto; 
+            width:fit-content
+        }
+    }
+}
+@media (min-width:100px) and (max-width: 480px) {
+    .input-group.input-group-lg {
+        span.input-group-text {
+            width: fit-content;
+            border-radius: 8px !important;
+            margin: auto;
+            margin-bottom: 6px;
+        }
+
+        input#usernameInput {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        button#searchBtn {
+            width: 100%; /* Makes the button full width on small screens */
+            border-radius: 8px;
+            margin: auto; 
+
+        }
+    }
+}
+
